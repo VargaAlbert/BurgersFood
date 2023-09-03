@@ -1,0 +1,182 @@
+.navbar {
+    .hamburger-lines,
+    input[type="checkbox"]{
+        display: none;
+    }
+}
+
+.navbar {
+    box-shadow: 0px 5px 10px 0px map-get($color-main, box-shadow);
+    position: fixed;
+    width: 100%;
+    background: map-get($color-basic, cwhite);
+    color: map-get($color-basic, cblack);
+    opacity: 0.95;
+    height: 4rem;
+    z-index: 99;
+
+    &-container {
+        height: 4rem;
+        @include flexBox(row, nowrap, normal, space-between, center);
+    }
+}
+
+.logo {
+    height: 85%;
+    @include flexBox(row, nowrap, normal, normal, center);
+}
+
+.menu-items {
+    @include flexBox(row, nowrap, normal, normal, normal);
+    order: 2;
+    text-align: center;
+
+    li {
+        font-size: 1.1rem;
+        padding: 0 0.3rem;
+        @include flexBox(row, nowrap, center, center, center);
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: map-get($color-main, cgray4);
+        font-weight: map-get($font-weights, weights-8);
+        transition: color 0.3s ease-in-out;
+
+        &:hover{
+            color: map-get($color-main, burger);
+            transition: color 0.3s ease-in-out;
+        }
+    }
+
+    .crat-text {
+        text-decoration: none;
+        color: map-get($color-main, cgray4);
+        font-weight: map-get($font-weights, weights-8);
+        transition: color 0.3s ease-in-out;
+    
+        &:hover{
+            color: map-get($color-main, burger);
+            transition: color 0.3s ease-in-out;
+        }
+    }
+
+    .nav-cart {
+        margin-left: 2rem;
+        @include flexBox(row, nowrap, normal, normal, center);
+        display: flex;
+    }
+}
+
+@include nav{
+    .navbar-container{
+        input[type="checkbox"],
+        .hamburger-lines {
+            display: block;
+        }
+
+        input[type="checkbox"]:checked~.menu-items {
+            transform: translateX(0);
+        }
+
+        input[type="checkbox"]:checked~.hamburger-lines .line1 {
+            transform: rotate(35deg);
+        }
+
+        input[type="checkbox"]:checked~.hamburger-lines .line2 {
+        transform: scaleY(0);
+        }
+        
+        input[type="checkbox"]:checked~.hamburger-lines .line3 {
+            transform: rotate(-35deg);
+        }    
+    }
+    
+    .navbar {
+        opacity: 0.95;
+
+        .menu-items {
+            padding-top: 100px;
+            background: map-get($color-basic, cwhite);
+            height: 100vh;
+            max-width: 300px;
+            transform: translate(-150%);
+            @include flexBox(column, nowrap, normal, normal, normal);
+            margin-left: -40px;
+            padding-left: 50px;
+            transition: transform 0.5s ease-in-out;
+            box-shadow: 5px 0px 10px 0px map-get($color-main, box-shadow);
+
+            li {
+                margin-bottom: 1.5rem;
+                font-size: 1.5rem;
+                font-weight: map-get($font-weights, weights-5);
+            }
+
+            .nav-cart {
+                margin-left: 0rem;
+                margin-top: 2rem;
+            }
+        }
+
+        &-container {
+            display: block;
+            position: relative;
+            height: 4rem;
+
+            input[type="checkbox"] {
+                position: absolute;
+                display: block;
+                height: 32px;
+                width: 30px;
+                top: 20px;
+                left: 20px;
+                z-index: 5;
+                opacity: 0;
+            }
+
+            .hamburger-lines {
+                display: block;
+                height: 23px;
+                width: 35px;
+                position: absolute;
+                top: 17px;
+                left: 20px;
+                z-index: 2;
+                @include flexBox(column, nowrap, normal, space-between, normal);
+
+                .line {
+                    display: block;
+                    height: 4px;
+                    width: 100%;
+                    border-radius: 10px;
+                    background: map-get($color-background, menu);
+                }
+
+                .line1 {
+                    transform-origin: 0% 0%;
+                    transition: transform 0.4s ease-in-out;
+                }
+
+                .line2 {
+                    transition: transform 0.2s ease-in-out;
+                }
+
+                .line3 {
+                    transform-origin: 0% 100%;
+                    transition: transform 0.4s ease-in-out;
+                }
+            }
+        }
+    }
+
+    .logo {
+        position: absolute;
+        right: 15px;
+    }
+
+    .menu-items li {
+        @include flexBox(row, nowrap, normal, flex-start, flex-start);
+    }
+}

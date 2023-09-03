@@ -1,0 +1,79 @@
+#contact {
+    padding: 5rem 0;
+    background: map-get($color-background, contact);
+}
+
+.contact-container {
+    background: map-get($color-basic, cwhite);
+}
+
+.contact-img {
+    width: 100%;
+    img {
+        display: block;
+        height: 400px;
+        width: 100%;
+        object-position: center;
+        object-fit: cover;
+    }
+}
+
+.form-container {
+    padding: 1rem;
+    width: 100%;
+    margin: auto;
+
+    h2 {
+        font-size: map-get($font-size, r25) + 0.2rem;
+        font-weight: map-get($font-weights, weights-5);
+        color: map-get($color-main, cgray4);
+        margin-bottom: 1rem;
+        margin-top: -1.2rem;
+    }
+
+    textarea {
+        display: block;
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid map-get($color-main, form-border-color);
+        color: map-get($color-main, cgray4);
+        outline: none;
+        padding: 1rem 0;
+        resize: none;
+    }
+    
+    button {
+        padding: 0.5em 1.5em;
+        border-radius: 50px;
+        cursor: pointer;
+        outline: none;
+        margin-top: 1em;
+        font-weight: map-get($font-weights, weights-6);
+        color: map-get($color-basic, cblack);
+        background: map-get($color-main, burger);
+    }
+}
+
+input[type="text"],
+input[type="email"] {
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid map-get($color-main, form-border-color);
+    padding: 1rem 0;
+    box-shadow: none;
+    outline: none;
+    margin-bottom: 1rem;
+    color: map-get($color-main, cgray4);
+    font-weight: map-get($font-weights, weights-5);
+}
+
+@include Small{
+    .contact-container {
+        @include flexBox(row, nowrap, normal, normal, normal);
+    }
+}
+@include Medium{}
+@include Large{}
+@include Extra-large{}
+@include XXL-large{}

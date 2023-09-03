@@ -1,0 +1,108 @@
+#about {
+    padding: 4rem 0;
+    background: map-get($color-background, main);
+}
+
+.about-text {
+    padding: 0 1rem;
+    @include flexBox(column, nowrap, normal, center, normal);
+
+    h4 {
+        font-size: map-get($font-size, r10) - 0.2rem;
+        color: map-get($color-main, cgray5);
+    }
+
+    h2 {
+        font-size: map-get($font-size, r15);
+        color: var(--main-black);
+    }
+
+    p {
+        font-size: map-get($font-size, r10);
+        color: map-get($color-basic, cblack);
+        padding: 1rem 0;
+    }
+}
+
+.about-img {
+    @include flexBox(row, nowrap, normal, center, center);
+
+    img {
+        width: 90vw;
+    }
+}
+
+@include Small{}
+@include Medium{
+    .about-text {
+        h4 {
+            font-size: map-get($font-size, r15) + 0.3rem;
+        }
+    
+        h2 {
+            font-size: map-get($font-size, r25);
+        }
+
+        p {
+            font-size: map-get($font-size, r15) + 0.1rem;
+        }
+    }  
+}
+@include Large{
+    .about-container {
+        width: 90vw;
+        @include flexBox(row, nowrap, normal, normal, normal);
+    }
+
+    .about-text {
+        min-width: 50%;
+
+        h4 {
+            font-size: map-get($font-size, r10) - 0.2rem;
+        }
+
+        h2 {
+            font-size: map-get($font-size, r15) + 0.1rem;
+        }
+
+        p {
+            font-size: map-get($font-size, r10);
+            padding: 1rem 0;
+        }
+    }
+    .about-img > {
+        img {
+            width: 100%;
+        }
+    }
+}
+@include Extra-large{
+    .about-text {
+        h4 {
+            font-size: map-get($font-size, r10);
+        }
+
+        h2 {
+            font-size: map-get($font-size, r15) + 0.3rem;
+        }
+
+        p {
+            font-size: map-get($font-size, r15) - 0.1rem;
+        }
+    }
+}
+@include XXL-large{
+    .about-text {
+        h4 {
+            font-size: map-get($font-size, r15) -0.2rem;
+        }
+
+        h2 {
+            font-size: map-get($font-size, r20);
+        }
+
+        p {
+            font-size: map-get($font-size, r15) + 0.1rem;
+        }
+    }
+}

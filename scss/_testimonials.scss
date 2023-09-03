@@ -1,0 +1,43 @@
+#testimonials {
+    padding: 4rem 0;
+    background: map-get($color-background, main);
+}
+
+.testimonials{
+    margin: 1rem;
+    width: 250px;
+    height: auto;
+    text-align: center;
+
+    &-h2{
+        font-size: map-get($font-size, r20);
+        letter-spacing: 0.1rem;
+        font-style: italic;
+        text-align: center;
+    }
+
+    &-container {
+        @include flexBox(row, wrap, normal, space-around, normal);
+    }
+
+    &-img {
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+    }
+
+    h4 {
+        font-size: map-get($font-size, r20);
+    }
+    
+}
+
+@include Small{
+    .testimonials-h2 {
+        font-size: map-get($font-size, r30);
+    }
+}
+@include Medium{}
+@include Large{}
+@include Extra-large{}
+@include XXL-large{}

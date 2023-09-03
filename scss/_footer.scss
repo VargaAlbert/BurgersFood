@@ -1,0 +1,195 @@
+footer {
+    background: map-get($color-background, footer);
+
+    h4 {
+        font-size: map-get($font-size, r20);
+        font-weight: map-get($font-weights, weights-4);
+        letter-spacing: 0.1rem;
+        text-align: center;
+        color: map-get($color-basic, cwhite);
+    }
+    
+    p {
+        padding: 1rem;
+        color: map-get($color-basic, cwhite);
+        text-align: center;
+    }
+
+}
+.footer-container {
+    @include flexBox(column, nowrap, normal, normal, center);
+}
+
+.footer-opening{
+    ul {
+        font-weight: map-get($font-weights, weights-6);
+        letter-spacing: 0.1rem;
+        color: map-get($color-main, burger);
+        text-align: center;
+    }
+}
+
+.footer-contact-container{
+    width: 95vw;
+
+    &>div {
+        padding: 1rem;
+    }
+}
+
+.footer-text {
+    padding-top: auto;
+    @include flexBox(row, nowrap, normal, center, center);
+    text-align: center;
+    padding: 1rem 0;
+
+    a {
+        text-decoration: none;
+        font-size: map-get($font-size, r10);
+        color: map-get($color-basic, cwhite);
+        font-weight: map-get($font-weights, weights-3);
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+.footer-icon {
+    @include flexBox(column, nowrap, normal, center, normal);
+
+    &-container {
+        @include flexBox(row, nowrap, normal, space-around, normal);
+
+        i {
+            color: map-get($color-main, burger);
+            font-size: map-get($font-size, r30);
+        }        
+    }
+
+    &-logo-container {
+        display: none;
+    }
+}
+
+.footer-form-container {
+    input[type="text"],
+    input[type="email"] {
+        display: block;
+        width: 100%;
+        background: none;
+        border: 2px solid map-get($color-main, form-border-color);
+        padding: 1rem;
+        box-shadow: none;
+        outline: none;
+        margin-bottom: 1rem;
+        color: map-get($color-basic, cwhite);
+        font-weight: map-get($font-weights, weights-5);
+    }
+
+    button {
+        font-size: map-get($font-size, r10);
+        padding: 0.5em;
+        border-radius: 50px;
+        cursor: pointer;
+        outline: none;
+        font-weight: map-get($font-weights, weights-6);
+        color: map-get($color-basic, cblack);
+        background: map-get($color-main, burger);
+
+        &:hover {
+            transform: scale(map-get($transform, scale3));
+        }
+    }
+}
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    width: 90 vw;
+    height: 410px;
+}
+
+#gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    width: 90vw;
+    height: 400px;
+}
+
+#gmap_iframe {
+    width: 95vw;
+    height: 400px;
+    overflow: hidden;
+}
+
+@include Small{
+    .footer-contact-container {
+        width: 100%;
+        @include flexBox(row, wrap, normal, normal, normal);
+    }
+
+    .footer-opening,
+    .footer-text {
+        width: 50%;
+
+        a {
+            font-size: map-get($font-size, r10) + 0.2rem;
+        }
+    }
+
+    .footer-icon,
+    .footer-form-container {
+        width: 100%;
+    }
+
+}
+@include Medium{
+    .footer-icon,
+    .footer-form-container {
+        width: 50%;
+    }
+
+    .footer-icon-logo {
+        width: 12rem;
+        height: 6rem;
+
+        &-container {
+            margin: 1rem;
+            @include flexBox(column, nowrap, normal, normal, center);
+            text-align: center;
+    
+            h6 {
+                color: map-get($color-basic, cwhite);
+                font-size: map-get($font-size, r10);
+                font-style: italic;
+                letter-spacing: 0.2rem;
+            }
+        }
+    }
+}
+@include Large{
+    .footer-container {
+        width: 100%;
+        @include flexBox(row, nowrap, normal, center, normal);
+
+        &>div{
+            width: 50%;
+        }
+    }
+    
+    .mapouter {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    #gmap_canvas {
+        width: 100%;
+    }
+
+    #gmap_iframe {
+        width: 100%;
+    }
+}
+@include Extra-large{}
+@include XXL-large{}

@@ -1,0 +1,148 @@
+#menu{
+    h2 {
+        text-align: center;
+        margin: 1rem 0;
+        font-size: map-get($font-size, r30);
+        font-weight: map-get($font-weights, weights-7);
+    }
+
+    h4 {
+        text-align: center;
+        margin: 1.5rem 0;
+        font-size: map-get($font-size, r20);
+        letter-spacing: .2rem;
+        text-decoration: underline;
+    }
+}
+
+.menu-container {
+    @include flexBox(column, nowrap, normal, center, normal);
+    text-align: center;
+
+    &-img {
+        width: 100%;
+        margin: auto;
+
+        img {
+            border-radius: 50%;
+            text-align: center;
+            width: 300px;
+            height: 300px;
+        }
+    }
+
+    &-content {
+        margin: 1rem;
+    }
+
+    &-text > {
+       p{
+        margin: 1rem 0;
+       }
+
+       h3{
+        font-size: 2rem;
+        font-weight: 400;
+       }
+    }
+
+    &-price {
+        @include flexBox(row, nowrap, normal, center, center);
+        margin: 0.5rem;
+
+        h3 {
+            font-size: map-get($font-size, r10) + 0.2rem;
+            margin: 0 1rem;
+        }
+
+        button {
+            display: inline-block;
+            padding: .75rem 1.25rem;
+            border-radius: 10rem;
+            color: map-get($color-basic, cblack);
+            background-color: map-get($color-main, burger);
+            letter-spacing: 0.1rem;
+            font-weight: 700;
+            border: none;
+
+            &:hover{
+                background-color: map-get($color-main, btn-hover-color);
+            }
+        }
+    }
+}
+
+.menu-opcion {
+    margin: 3rem 0rem;
+    padding: 1rem;
+}
+
+.menu-banner {
+    width: 100%;
+
+    img {
+        @extend .menu-banner;
+        max-height: 200px;
+    }
+}
+
+@include Small{
+    .menu-opcion {
+        @include flexBox(row, nowrap, normal, normal, normal);
+    }
+
+    .menu-container-img {
+        width: 100%;
+        margin: auto;
+
+        img {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+        }
+    }
+
+    .menu-container{  
+        &-content {
+            @include flexBox(column, nowrap, normal, center, normal);
+    }
+}
+    
+
+}
+
+
+@include Small{    
+    .menu-title {
+        margin: 2rem 0;
+        font-size: map-get($font-size, r40);
+        letter-spacing: 0.3rem;
+    }
+}
+@include Medium{
+    .menu-items{
+        li {
+            font-size: map-get($font-size, r10) + 0.2rem;
+            padding: 0 0.6rem;
+        }
+    }
+}
+@include Large{
+    .menu-container-text > {
+        p {
+            text-align: left;
+        }
+    }
+
+}
+@include Extra-large{
+    .menu-opcion {
+        width: 50%;
+    }
+
+    .menu-container {
+        @include flexBox(row, wrap, normal, center, normal);
+        text-align: center;
+    }
+}
+@include XXL-large{}

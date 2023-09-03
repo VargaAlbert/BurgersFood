@@ -1,0 +1,111 @@
+#compilation {
+    margin: 2rem 0;
+
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        letter-spacing: 0.3rem;
+        margin: 2rem 0;
+    }
+}
+
+.compilation{
+    &-container {
+      @include flexBox(column, nowrap, normal, normal, normal);
+
+      img {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        max-height: 300px;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    &-img-container {
+        position: relative;
+
+        &::after{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.871);
+            opacity: 0;
+            z-index: 1;
+            transform: scaleY(0);
+            transform-origin: 100% 100%;
+            transition: all 0.3s ease-in-out;
+        }
+
+        &:hover::after {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+    }
+
+    &-img-container:hover &-img-text {
+        opacity: 1;
+        top: 40%;
+    }
+
+    &-img-text {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        z-index: 2;
+        text-align: center;
+        transition: all 0.3s ease-in-out 0.1s;
+
+        h3 {
+            color: map-get($color-basic, cwhite);
+            font-size: map-get($font-size, r15) + 0.3rem;
+            margin: 1rem 0;
+        }
+
+        p {
+            color: map-get($color-basic, cwhite);
+            font-size: map-get($font-size, r10);
+        }
+        
+    }    
+}
+
+@include Small{
+    .compilation-img-container {
+        width: 45%;
+        margin: 2.5%;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .compilation-container {
+        @include flexBox(row, wrap, normal, normal, normal);
+    }
+
+    .compilation-h2 {
+        font-size: map-get($font-size, r30);
+        letter-spacing: 0.3rem;
+        margin: 3rem 0;
+    }
+}
+
+@include Small{}
+@include Medium{}
+@include Large{}
+@include Extra-large{
+    .compilation-img-container {
+        width: 23%;
+        margin: 1%;
+    }
+}
+@include XXL-large{}

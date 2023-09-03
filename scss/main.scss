@@ -1,0 +1,46 @@
+@import "reset";
+@import "variable";
+
+
+// base:  @include flexBox(row, nowrap, normal, normal, normal);
+@mixin flexBox($direction, $wrap, $align, $justify, $align-items){
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-content: $align;
+    justify-content: $justify;
+    align-items: $align-items;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1440px;
+    width: 95%;
+    margin: auto;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.transform-scale-1-1:hover {
+    transform: scale(map-get($transform, scale1));
+}
+
+.transform-scale-1-2:hover {
+    transform: scale(map-get($transform, scale2));
+}
+
+
+
+@import "nav";
+@import "home";
+@import "about";
+@import "compilation";
+@import "menu";
+@import "testimonials";
+@import "contact";
+@import "footer";
